@@ -24,4 +24,7 @@ public class Apply {
     public Vaccine getVaccine(){
         return this.vaccine;
     }
+    public void setVaccine(Vaccine vaccine){
+        this.vaccine=vaccine;
+    }
 }
