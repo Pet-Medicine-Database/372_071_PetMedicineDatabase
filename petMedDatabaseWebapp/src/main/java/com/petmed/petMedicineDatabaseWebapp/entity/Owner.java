@@ -1,5 +1,7 @@
 package com.petmed.petMedicineDatabaseWebapp.entity;
 
+import java.util.List;
+
 public class Owner {
 	
 	private String email;
@@ -12,10 +14,25 @@ public class Owner {
 	
 	private long phoneNumber;
 	
+	//link with animal-id
+	//one-to-many
+	private List<Animal> ownedAnimals;
+	
 	public Owner() {
 		
 		
 	}
+	
+
+	public List<Animal> getOwnedAnimals() {
+		return ownedAnimals;
+	}
+
+
+	public void setOwnedAnimals(List<Animal> ownedAnimals) {
+		this.ownedAnimals = ownedAnimals;
+	}
+
 
 	public String getEmail() {
 		return email;

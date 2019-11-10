@@ -18,14 +18,17 @@ public class Animal {
 	
 	private Owner owner;
 	
-	
+	//hayvancagizin girdigi butun appointmentlari burda tutmali.
+	private List<Appointment> apppointmentList;
+
 	//We won't be using this but to show the options while selecting a vet for animal, we need all vetList.
 	private List<Vet> vetList;
 	
+	
+
 	public Animal() {
-		vetList.add(new Vet());
-		vetList.add(new Vet());
 		
+		//Bir query atip sahip oldugumuz butun veterinerleri @param vetList'e koyar misiniz?
 	}
 
 	public String getName() {

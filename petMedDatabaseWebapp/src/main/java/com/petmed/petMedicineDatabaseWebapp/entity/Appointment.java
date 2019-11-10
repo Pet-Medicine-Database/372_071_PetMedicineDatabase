@@ -13,11 +13,18 @@ public class Appointment {
 	
 	private Calendar appointmentHour;
 	
-	private int vetTCNo;
 	
-	private int animalId;
+	//link with vet-id
+	//one-to-one
+	private Vet vet;
 	
-	private int ownerTCNo;
+	//many-to-one 
+	//link with animal-id
+	private Animal animal;
+	
+	//many-to-one
+	//link with owner-id
+	private Owner owner;
 	
 	public Appointment() {
 		
@@ -56,29 +63,28 @@ public class Appointment {
 		this.appointmentHour = appointmentHour;
 	}
 
-	public int getVetTCNo() {
-		return vetTCNo;
+	public Vet getVet() {
+		return vet;
 	}
 
-	public void setVetTCNo(int vetTCNo) {
-		this.vetTCNo = vetTCNo;
+	public void setVet(Vet vet) {
+		this.vet = vet;
 	}
 
-	public int getAnimalId() {
-		return animalId;
+	public Animal getAnimal() {
+		return animal;
 	}
 
-	public void setAnimalId(int animalId) {
-		this.animalId = animalId;
+	public void setAnimal(Animal animal) {
+		this.animal = animal;
 	}
 
-	public int getOwnerTCNo() {
-		return ownerTCNo;
+	public Owner getOwner() {
+		return owner;
 	}
 
-	public void setOwnerTCNo(int ownerTCNo) {
-		this.ownerTCNo = ownerTCNo;
+	public void setOwner(Owner owner) {
+		this.owner = owner;
 	}
-	
-	
+
 }

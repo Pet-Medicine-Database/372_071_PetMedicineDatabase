@@ -2,20 +2,23 @@ package com.petmed.petMedicineDatabaseWebapp.entity;
 
 public class Examination {
 
-	private int appointmentId;
+	
+	//link with appointment-id
+	//one-to-one
+	private Appointment appointment;
 
 	public Examination() {
 		
 		
 	}
 
-	public int getAppointmentId() {
-		return appointmentId;
+	public Appointment getAppointment() {
+		return appointment;
 	}
 
-	public void setAppointmentId(int appointmentId) {
-		this.appointmentId = appointmentId;
+	public void setAppointment(Appointment appointment) {
+		this.appointment = appointment;
 	}
-	
-	
+
+
 }
