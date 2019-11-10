@@ -1,7 +1,11 @@
 package com.petmed.petMedicineDatabaseWebapp.entity;
 
+import java.util.List;
+
 public class Animal {
 
+	private String name;
+	
 	private String type;
 	
 	private int animalId;
@@ -10,13 +14,26 @@ public class Animal {
 	
 	private int age;
 	
-	private int vetTCNo;
+	private Vet vet;
 	
-	private int ownerTCNo;
+	private Owner owner;
+	
+	
+	//We won't be using this but to show the options while selecting a vet for animal, we need all vetList.
+	private List<Vet> vetList;
 	
 	public Animal() {
+		vetList.add(new Vet());
+		vetList.add(new Vet());
 		
-		
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getType() {
@@ -51,22 +68,23 @@ public class Animal {
 		this.age = age;
 	}
 
-	public int getVetTCNo() {
-		return vetTCNo;
+	public Vet getVet() {
+		return vet;
 	}
 
-	public void setVetTCNo(int vetTCNo) {
-		this.vetTCNo = vetTCNo;
+	public void setVet(Vet vet) {
+		this.vet = vet;
 	}
 
-	public int getOwnerTCNo() {
-		return ownerTCNo;
+	public Owner getOwner() {
+		return owner;
 	}
 
-	public void setOwnerTCNo(int ownerTCNo) {
-		this.ownerTCNo = ownerTCNo;
+	public void setOwner(Owner owner) {
+		this.owner = owner;
 	}
-	
+
+
 	
 	
 }

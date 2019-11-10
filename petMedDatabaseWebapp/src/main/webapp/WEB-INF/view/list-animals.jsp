@@ -10,5 +10,11 @@
 <h1> Animal list</h1>
 This page is under construction.
 
+<br><br>
+
+	<input type="button" value="Add Animal"
+					   onclick="window.location.href='showAnimalFormForAdd'; return false;"
+					   class="add-button"/>
+
 </body>
 </html>
