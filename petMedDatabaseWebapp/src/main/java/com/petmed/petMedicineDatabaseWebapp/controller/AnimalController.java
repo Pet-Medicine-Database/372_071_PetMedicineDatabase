@@ -50,11 +50,11 @@ public class AnimalController {
 		
 		//when constructing an animal vetList must be prepopulated. Because we should provide a vet list to a user to choose from.
 		//By that 
-		/*
-		 * Animal theAnimal = new Animal();
-		 * 
-		 * theModel.addAttribute(theAnimal);
-		 */
+		
+		  Animal theAnimal = new Animal();
+		  
+		  theModel.addAttribute("animal",theAnimal);
+		 
 		
 		return "animal-form";
 	}
@@ -64,8 +64,8 @@ public class AnimalController {
 	public String saveAnimal(@ModelAttribute("animal") Animal newAnimal) {
 		
 		//Save the sent animal to the DB. Service must be provided.
-		animalService.saveAnimal(newAnimal);		
-		
+		//animalService.saveAnimal(newAnimal);		
+		System.out.println(newAnimal);
 		//redirect user to the animal list. Let him see the new animal is added.
 		//TUNA: Animal eklendi diye bir not basabiliriz bak.
 		return "redirect:/animal/list";

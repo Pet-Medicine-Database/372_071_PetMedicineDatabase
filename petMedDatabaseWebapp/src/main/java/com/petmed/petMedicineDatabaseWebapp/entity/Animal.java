@@ -2,8 +2,12 @@ package com.petmed.petMedicineDatabaseWebapp.entity;
 
 import java.util.List;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Animal {
 
+	
 	private String name;
 	
 	private String type;
@@ -85,6 +89,12 @@ public class Animal {
 
 	public void setOwner(Owner owner) {
 		this.owner = owner;
+	}
+
+	@Override
+	public String toString() {
+		return "Animal [name=" + name + ", type=" + type + ", animalId=" + animalId + ", genus=" + genus + ", age="
+				+ age + "]";
 	}
 
 

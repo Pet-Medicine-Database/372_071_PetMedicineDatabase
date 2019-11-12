@@ -13,7 +13,7 @@
 <body>
 <div id = "wrapper">
 	<div id = "header">
-		<h2></h2>
+		<h2>HELLO WORLD!</h2>
 	</div>
 </div>
 
@@ -25,20 +25,20 @@
 	<table>
 		<tbody>
 			<tr>
-				<td> <label>Isim</label></td>
-				<%-- <td><form:input path="name"/> --%>
+				<td><label>Hayvanin ismi:</label> </td>
+				<td><form:input type = "text" path="name"/></td>
 			</tr>
 			<tr>
-				<td> <label>Tur</label></td>
-				<%-- <td><form:input path="type"/> --%>
+				<td><label>Hayvanin turu:</label> </td>
+				<td><form:input path="type"/></td>
 			</tr>
 			<tr>
-				<td> <label>Cins</label></td>
-				<%-- <td><form:input path="genus"/> --%>
+				<td><label>Hayvanin cinsi:</label> </td>
+				<td><form:input path="genus"/></td>
 			</tr>
 			<tr>
-				<td> <label>Yas</label></td>
-				<%-- <td><form:input path="age"/> --%>
+				<td><label>Hayvanin yasi:</label> </td>
+				<td><form:input path="age"/></td>
 			</tr>
 			<tr>
 				<td> <label>Vet</label></td>
@@ -56,11 +56,6 @@
 	
 	
 	</form:form>
-	
-	
-	
-	
-	
 	
 </div>
 
