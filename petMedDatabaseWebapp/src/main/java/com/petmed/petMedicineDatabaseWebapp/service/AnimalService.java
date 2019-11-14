@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.petmed.petMedicineDatabaseWebapp.entity.Animal;
+import com.petmed.petMedicineDatabaseWebapp.entity.Owner;
 
 @Service
 public class AnimalService {
@@ -21,6 +22,11 @@ public class AnimalService {
 	public void saveAnimal(Animal newAnimal) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	public List<Owner> getOwners() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 

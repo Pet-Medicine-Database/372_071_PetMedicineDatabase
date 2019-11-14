@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.petmed.petMedicineDatabaseWebapp.entity.Animal;
+import com.petmed.petMedicineDatabaseWebapp.entity.Owner;
 import com.petmed.petMedicineDatabaseWebapp.service.AnimalService;
 
 @Controller
@@ -26,6 +27,8 @@ public class AnimalController {
 
 		//get animals from service. Service must be provided.
 		List<Animal> theAnimals = animalService.getAnimals();
+		List<Owner> owners = animalService.getOwners();
+		
 		
 		theModel.addAttribute("animals",theAnimals);
 		

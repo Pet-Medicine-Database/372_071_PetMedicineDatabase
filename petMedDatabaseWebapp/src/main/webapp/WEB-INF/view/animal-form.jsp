@@ -41,11 +41,8 @@
 				<td><form:input path="age"/></td>
 			</tr>
 			<tr>
-				<td> <label>Vet</label></td>
-				<%-- <td> <form:select path="vet">
-					<form:option value="NONE" label = "--- Birini Seciniz ---"/>
-					<form:options value = "${vetList}"/>
-				</form:select></td> --%>
+				<td><label></label></td>
+				<td><input type="submit" value="Save" class="save" /></td>
 			</tr>
 				
 		</tbody>

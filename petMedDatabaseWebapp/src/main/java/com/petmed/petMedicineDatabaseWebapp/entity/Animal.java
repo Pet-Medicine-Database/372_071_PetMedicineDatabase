@@ -26,7 +26,7 @@ public class Animal {
 	private List<Appointment> apppointmentList;
 
 	//We won't be using this but to show the options while selecting a vet for animal, we need all vetList.
-	private List<Vet> vetList;
+	private List<String> vetList;
 	
 	
 
