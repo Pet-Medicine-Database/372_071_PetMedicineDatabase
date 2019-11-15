@@ -94,8 +94,12 @@ public class Animal {
 	@Override
 	public String toString() {
 		return "Animal [name=" + name + ", type=" + type + ", animalId=" + animalId + ", genus=" + genus + ", age="
-				+ age + "]";
+				+ age + ", vet=" + vet + ", owner=" + owner + "]";
 	}
+
+
+
+
 
 
 	

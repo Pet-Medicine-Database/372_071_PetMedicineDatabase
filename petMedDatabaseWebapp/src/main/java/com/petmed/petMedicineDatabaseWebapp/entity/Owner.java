@@ -2,6 +2,9 @@ package com.petmed.petMedicineDatabaseWebapp.entity;
 
 import java.util.List;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Owner {
 	
 	private String email;
@@ -13,6 +16,8 @@ public class Owner {
 	private int ownerTCNo;
 	
 	private long phoneNumber;
+	
+	private String name;
 	
 	//link with animal-id
 	//one-to-many
@@ -73,6 +78,23 @@ public class Owner {
 	public void setPhoneNumber(long phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
+
+
+	public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	@Override
+	public String toString() {
+		return "Owner [email=" + email + ", job=" + job + ", address=" + address + ", ownerTCNo=" + ownerTCNo
+				+ ", phoneNumber=" + phoneNumber + ", name=" + name + "]";
+	}
+	
 	
 	
 

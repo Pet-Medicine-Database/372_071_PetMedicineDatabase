@@ -1,5 +1,6 @@
 package com.petmed.petMedicineDatabaseWebapp.controller;
 
+import java.util.LinkedHashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.petmed.petMedicineDatabaseWebapp.entity.Animal;
 import com.petmed.petMedicineDatabaseWebapp.entity.Owner;
+import com.petmed.petMedicineDatabaseWebapp.entity.Vet;
 import com.petmed.petMedicineDatabaseWebapp.service.AnimalService;
 
 @Controller
@@ -27,9 +29,6 @@ public class AnimalController {
 
 		//get animals from service. Service must be provided.
 		List<Animal> theAnimals = animalService.getAnimals();
-		List<Owner> owners = animalService.getOwners();
-		
-		
 		theModel.addAttribute("animals",theAnimals);
 		
 		return "list-animals";
@@ -55,8 +54,14 @@ public class AnimalController {
 		//By that 
 		
 		  Animal theAnimal = new Animal();
-		  
+		  //string hold the value of corresponding vet
+		  LinkedHashMap<Vet, String> vetList = animalService.getVetsAsKeyValuePair();
+	 	  //string hold the value of corresponding owner
+		  LinkedHashMap<Owner, String> ownerList = animalService.getOwnersAsKeyValuePair();
+		  	  
 		  theModel.addAttribute("animal",theAnimal);
+		  theModel.addAttribute("owners",ownerList);
+		  theModel.addAttribute("vets",vetList);
 		 
 		
 		return "animal-form";
@@ -67,8 +72,9 @@ public class AnimalController {
 	public String saveAnimal(@ModelAttribute("animal") Animal newAnimal) {
 		
 		//Save the sent animal to the DB. Service must be provided.
-		//animalService.saveAnimal(newAnimal);		
+		animalService.saveAnimal(newAnimal);		
 		System.out.println(newAnimal);
+		System.out.println(newAnimal.getVet());
 		//redirect user to the animal list. Let him see the new animal is added.
 		//TUNA: Animal eklendi diye bir not basabiliriz bak.
 		return "redirect:/animal/list";

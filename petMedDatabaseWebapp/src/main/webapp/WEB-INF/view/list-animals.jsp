@@ -26,10 +26,12 @@ This page is under construction.
 					   
 	<table>
 		<tr>
-			<th>Name</th>
-			<th>Owner Name</th>
-			<th>Email</th>
-			<th>Action</th>
+			<th>Ismi</th>
+			<th>Cinsi</th>
+			<th>Turu</th>
+			<th>Sahibinin Ismi</th>
+			<th>Sahibinin mail adresi</th>
+			<th>Sorumlusu olan veteriner</th>
 		</tr>
 				
 		<!-- loop over and print our customers -->

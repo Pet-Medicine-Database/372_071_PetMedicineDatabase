@@ -2,6 +2,9 @@ package com.petmed.petMedicineDatabaseWebapp.entity;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Vet {
 	
 	private int vetTCNo;
@@ -17,7 +20,7 @@ public class Vet {
 	public Vet() {
 		
 	}
-
+	
 	public int getTCNo() {
 		return vetTCNo;
 	}
@@ -56,6 +59,12 @@ public class Vet {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	@Override
+	public String toString() {
+		return "Vet [vetTCNo=" + vetTCNo + ", startDate=" + startDate + ", expertise=" + expertise
+				+ ", numberOfPatients=" + numberOfPatients + ", name=" + name + "]";
 	}
 	
 	

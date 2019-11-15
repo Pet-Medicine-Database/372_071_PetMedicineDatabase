@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,32 +22,49 @@
 <div id ="container">
 	<h3>Save Animal</h3>
 	<form:form action = "saveAnimal" modelAttribute="animal" method = "POST">
-	<%-- <form:hidden path="id"/> --%>
+	<form:hidden path="animalId"/> 
 	
 	<table>
 		<tbody>
 			<tr>
-				<td><label>Hayvanin ismi:</label> </td>
+				<td><label>Name:</label> </td>
 				<td><form:input type = "text" path="name"/></td>
 			</tr>
 			<tr>
-				<td><label>Hayvanin turu:</label> </td>
+				<td><label>Type:</label> </td>
 				<td><form:input path="type"/></td>
 			</tr>
 			<tr>
-				<td><label>Hayvanin cinsi:</label> </td>
+				<td><label>Genus:</label> </td>
 				<td><form:input path="genus"/></td>
 			</tr>
 			<tr>
-				<td><label>Hayvanin yasi:</label> </td>
+				<td><label>Age:</label> </td>
 				<td><form:input path="age"/></td>
+			</tr>
+			
+			<tr>
+				<td><label>Hayvanin sahibi:</label> </td>
+				<td>
+					<form:select path="owner">
+						<form:options items="${owners}"/>
+					</form:select>
+				</td>
+			</tr>
+
+			<tr>
+				<td><label>Hayvanin veterineri:</label> </td>
+				<td>
+					<form:select path="vet">
+						<form:options items="${vets}"/>
+					</form:select>
+				</td>
 			</tr>
 			<tr>
 				<td><label></label></td>
 				<td><input type="submit" value="Save" class="save" /></td>
 			</tr>
-				
-		</tbody>
+		</tbody> 
 	
 	</table>
 	
