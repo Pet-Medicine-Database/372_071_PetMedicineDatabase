@@ -2,19 +2,32 @@ package com.petmed.petMedicineDatabaseWebapp.entity;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="Vet")
 public class Vet {
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="tc_no")
 	private int vetTCNo;
 	
+	@Column(name="startDate")
 	private Date startDate;
 	
+	@Column(name="expertise")
 	private String expertise;
 	
+	@Column(name="numberOfPatients")
 	private int numberOfPatients;
 	
+	@Column(name="name")
 	private String name;
 	
 	public Vet() {

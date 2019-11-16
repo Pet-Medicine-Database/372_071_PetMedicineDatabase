@@ -59,8 +59,9 @@ public class Animal {
 	
 	
 
-	public Animal() {
-		//Query for get all vets we have	
+	public Animal() {	
+		//Query for get all vets we have		
+		// Create the SessionFactory from hibernate.cfg.xml
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 		Session session = sessionFactory.openSession() ;
 		String hql = "FROM Vet";

@@ -2,20 +2,34 @@ package com.petmed.petMedicineDatabaseWebapp.entity;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="boarding")
 public class Boarding {
 	
 	
 	//link with appointment-id
 	//one-to-one
+	@OneToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="appointment_id")
 	private Appointment appointment;
 	
-	
+	@Column(name="bed_id")
 	private int bedId;
 	
+	@Column(name="bed_type")
 	private String bedType;
 	
+	@Column(name="when_to_be_available")
 	private Date whenToBeAvailable;
 	
+	@Column(name="is_available")
 	private boolean availability;
 	
 	public Boarding() {

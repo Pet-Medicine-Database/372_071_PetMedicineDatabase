@@ -2,25 +2,43 @@ package com.petmed.petMedicineDatabaseWebapp.entity;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="owner")
 public class Owner {
 	
+	@Column(name="e_mail")
 	private String email;
 	
+	@Column(name="job")
 	private String job;
 	
+	@Column(name="address")
 	private String address;
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="tc_no")
 	private int ownerTCNo;
 	
+	@Column(name="phone_number")
 	private long phoneNumber;
 	
+	//TODO add this attribute to owner table
+	@Column(name="name")
 	private String name;
 	
 	//link with animal-id
 	//one-to-many
+	@OneToMany(mappedBy="owner" ,cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
 	private List<Animal> ownedAnimals;
 	
 	public Owner() {
