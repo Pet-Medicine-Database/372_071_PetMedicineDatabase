@@ -3,27 +3,51 @@ package com.petmed.petMedicineDatabaseWebapp.entity;
 import java.util.Calendar;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="appointment")
 public class Appointment {
-	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="appoinment_id")
 	private int appointmentId;
 	
+	@Column(name="price")
 	private double price;
 	
+	@Column(name="appointment_date")
 	private Date appointmentDate;
 	
+	@Column(name="appointment_hour")
 	private Calendar appointmentHour;
 	
 	
+	//many-to-one 
 	//link with vet-id
-	//one-to-one
+	@ManyToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+	@JoinColumn(name="tc_no")
 	private Vet vet;
 	
 	//many-to-one 
 	//link with animal-id
+	@ManyToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+	@JoinColumn(name="id")
 	private Animal animal;
 	
 	//many-to-one
 	//link with owner-id
+	@ManyToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+	@JoinColumn(name="tc_no")
 	private Owner owner;
 	
 	public Appointment() {
@@ -86,5 +110,10 @@ public class Appointment {
 	public void setOwner(Owner owner) {
 		this.owner = owner;
 	}
-
+	
+	@Override
+	public String toString() {
+		return "Appointment[ AppointmentID:" + appointmentId + ", Price:" + price + ", Appointment_date:" + appointmentDate + ", Appoinment_hour" + appointmentHour +
+				", Vet:" + vet + ", Animal:" + animal + ", Owner:" + owner + " ]";
+	}
 }
