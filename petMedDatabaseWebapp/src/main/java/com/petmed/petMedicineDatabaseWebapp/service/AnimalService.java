@@ -1,5 +1,6 @@
 package com.petmed.petMedicineDatabaseWebapp.service;
 
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 
@@ -7,49 +8,48 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.petmed.petMedicineDatabaseWebapp.entity.Vet;
+import com.petmed.petMedicineDatabaseWebapp.dao.AnimalDao;
 import com.petmed.petMedicineDatabaseWebapp.entity.Animal;
 import com.petmed.petMedicineDatabaseWebapp.entity.Owner;
 
 @Service
 public class AnimalService {
 	
+	AnimalDao animalDao;
+	
 	public List<Animal> getAnimals(){
-		return null;
+		return animalDao.getAnimalList();
 	}
 	
 	public Animal getAnimal(int animalId) {
-		return null;
+		return animalDao.getAnimal(animalId);
 	}
 
 	public void saveAnimal(Animal newAnimal) {
-		// TODO Auto-generated method stub
-		
+		animalDao.saveAnimal(newAnimal);
 	}
 
-	public LinkedHashMap<String, Owner> getOwners() {
-		// TODO Auto-generated method stub
-		return null;
+	public LinkedHashMap<String, Owner> getOwnersAsKeyValuePair() {
+		List<Owner> ownerList=animalDao.getOwnerList();
+		LinkedHashMap<String,Owner> mappedList = null;
+		Iterator<Owner> i=ownerList.iterator();
+		while(i.hasNext()) {
+			Owner owner=(Owner) i.next();
+			mappedList.put(owner.getName(), owner);	
+		}
+		return mappedList;
 	}
 
-	public Vet getVets() {
-		// TODO Auto-generated method stub
-		return null;
+	public LinkedHashMap <String, Vet> getVetsAsKeyValuePair() {
+		List<Vet> vetList=animalDao.getVetList();
+		LinkedHashMap<String,Vet> mappedList = null;
+		Iterator<Vet> i=vetList.iterator();
+		while(i.hasNext()) {
+			Vet vet=(Vet) i.next();
+			mappedList.put(vet.getName(), vet);	
+		}
+		return mappedList;
 	}
-
-	public LinkedHashMap<Owner, String> getOwnersAsKeyValuePair() {
-		//icini doldur bana gonder abi
-		LinkedHashMap<Owner,String> ownerList = new LinkedHashMap<Owner, String>();
-		return ownerList;
-	}
-
-	public LinkedHashMap<Vet, String> getVetsAsKeyValuePair() {
-		// TODO Auto-generated method stub
-		//icini doldur bana gonder abi
-		LinkedHashMap<Vet,String> vetList = new LinkedHashMap<Vet, String>();
-		return vetList;
-	}
-
-
 	
 
 }

@@ -13,8 +13,6 @@ public interface AnimalDao {
 	void saveAnimal(Animal animal);
 
 	void deleteAnimal(int animalId);
-
-	void updateAnimal(int animalId);
 	
 	List<Animal> getAnimalList();
 	
