@@ -9,8 +9,7 @@ public class VaccineController {
 	
 	@RequestMapping("/list")
 	public String listAnimals() {
-
-		System.out.println("I m here");
+		
 		return "list-vaccine";
 	}
 
