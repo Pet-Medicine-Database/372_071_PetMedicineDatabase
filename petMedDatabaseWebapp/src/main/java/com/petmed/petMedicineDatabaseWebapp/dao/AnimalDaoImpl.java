@@ -13,7 +13,7 @@ public class AnimalDaoImpl extends AbstractDao<Integer, Animal> implements Anima
 	
 	@Override
 	public void saveAnimal(Animal animal) {
-		persist(animal);
+		save(animal);
 	}
 
 	@Override
@@ -31,12 +31,6 @@ public class AnimalDaoImpl extends AbstractDao<Integer, Animal> implements Anima
 		
 	}
 
-	@Override
-	public void updateAnimal(int animalId) {
-		// TODO Auto-generated method stub
-		
-	}
-
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Animal> getAnimalList() {
@@ -44,16 +38,26 @@ public class AnimalDaoImpl extends AbstractDao<Integer, Animal> implements Anima
 		return (List<Animal>) criteria.list();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Owner> getOwnerList() {
-		// TODO Auto-generated method stub
-		return null;
+		String hql="select o from Owner as o,Animal as a where a.owner_tc_no=o.tc_no";
+		@SuppressWarnings("rawtypes")
+		Query query = getSession().createSQLQuery(hql);
+		List<Owner> ownerList= query.list();
+		
+		return ownerList;
 	}
-
+	
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Vet> getVetList() {
-		// TODO Auto-generated method stub
-		return null;
+		String hql="select v from Vet as v,Animal as a where a.vet_tc_no=v.tc_no";
+		@SuppressWarnings("rawtypes")
+		Query query = getSession().createSQLQuery(hql);
+		List<Vet> vetList= query.list();
+		
+		return vetList;
 	}
 	
 }
