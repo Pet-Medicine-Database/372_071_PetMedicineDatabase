@@ -37,15 +37,19 @@ This page is under construction.
 		<!-- loop over and print our customers -->
 		<c:forEach var="tempAnimal" items="${animals}">
 				
-			<!-- construct an "update" link with customer id -->
+			  
 			<c:url var="updateLink" value="/animal/showFormForUpdate">
 				<c:param name="animalId" value="${tempAnimal.id}" />
 			</c:url>					
 
-			<!-- construct an "delete" link with customer id -->
+			 construct an "delete" link with customer id 
 			<c:url var="deleteLink" value="/animal/delete">
 				<c:param name="animalId" value="${tempAnimal.id}" />
-			</c:url>					
+			</c:url>
+			
+			<c:url var="showLink" value="/animal/showAnimal">
+				<c:param name="animalId" value="${tempAnimal.id}" />
+			</c:url>			  		
 					
 			<tr>
 				<td> ${tempAnimal.name} </td>
@@ -54,12 +58,15 @@ This page is under construction.
 				<td> ${tempAnimal.vet.name}</td>
 						
 				<td>
-					<!-- display the update link -->
+					 display the update link 
 					<a href="${updateLink}">Update</a>
 							|
 					<a href="${deleteLink}"
 					   onclick="if (!(confirm('Are you sure you want to delete this animal?'))) return false">Delete</a>
-				</td>
+					   
+					<a href = "${showLink}"
+						onclick = "(!(confirm('Are you sure you want to delete this animal?'))) return false">Show</a>   
+				</td>	
 					
 			</tr>
 				
