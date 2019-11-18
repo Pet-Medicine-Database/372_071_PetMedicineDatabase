@@ -47,7 +47,7 @@
 				<td><label>Hayvanin sahibi:</label> </td>
 				<td>
 					<form:select path="owner">
-						<form:options items="${owners}"/>
+						<form:options items="${owner}"/>
 					</form:select>
 				</td>
 			</tr>

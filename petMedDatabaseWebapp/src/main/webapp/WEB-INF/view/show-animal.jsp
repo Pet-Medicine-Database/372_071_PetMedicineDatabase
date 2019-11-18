@@ -9,5 +9,43 @@
 </head>
 <body>
 
+	<div id = "wrapper">
+		<div id = "header">
+			<p>${animal.name}</p>
+		</div>
+	</div>
+	
+	<div id = "container">
+		<div id = "ownerArea">
+			<p>${animal.owner.name}</p>
+			<p>${animal.owner.email}</p>
+		</div>
+		
+		<div id = "appointmentsArea">
+		<c:forEach var="tempAnimal" items="${animals}">								
+		<table>
+			<tr>
+				<td> ${tempAnimal.name} </td>
+				<td> ${tempAnimal.age} </td>
+				<td> ${tempAnimal.genus} </td>
+				<td> ${tempAnimal.vet.name}</td>
+						
+				<td>  
+				</td>
+					
+			</tr>
+			
+			
+				
+		</c:forEach>
+		
+		</table>
+		</div>
+	
+	
+	</div>
+
+
+
 </body>
 </html>
