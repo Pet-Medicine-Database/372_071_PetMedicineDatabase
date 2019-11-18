@@ -29,24 +29,24 @@ public class AnimalService {
 		animalDao.saveAnimal(newAnimal);
 	}
 
-	public LinkedHashMap<String, Owner> getOwnersAsKeyValuePair() {
+	public LinkedHashMap<Owner, String> getOwnersAsKeyValuePair() {
 		List<Owner> ownerList=animalDao.getOwnerList();
-		LinkedHashMap<String,Owner> mappedList = null;
+		LinkedHashMap<Owner, String> mappedList = null;
 		Iterator<Owner> i=ownerList.iterator();
 		while(i.hasNext()) {
 			Owner owner=(Owner) i.next();
-			mappedList.put(owner.getName(), owner);	
+			mappedList.put(owner,owner.getName());	
 		}
 		return mappedList;
 	}
 
-	public LinkedHashMap <String, Vet> getVetsAsKeyValuePair() {
+	public LinkedHashMap <Vet, String> getVetsAsKeyValuePair() {
 		List<Vet> vetList=animalDao.getVetList();
-		LinkedHashMap<String,Vet> mappedList = null;
+		LinkedHashMap<Vet,String> mappedList = null;
 		Iterator<Vet> i=vetList.iterator();
 		while(i.hasNext()) {
 			Vet vet=(Vet) i.next();
-			mappedList.put(vet.getName(), vet);	
+			mappedList.put(vet, vet.getName());	
 		}
 		return mappedList;
 	}
