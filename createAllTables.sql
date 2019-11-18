@@ -6,9 +6,9 @@ Create table vet(
         name varchar(255)
 );
 Create table apply(
-        vet_tc_no int,
-        animal_id varchar(255),
-        serial_number varchar(255)
+        vet_tc_no int REFERENCES vet(tc_no),
+        animal_id varchar(255) REFERENCES animal(id),
+        serial_number varchar(255) REFERENCES vaccine(serial_number)
 );
 Create table vaccine(
         expiration_date varchar(255),
@@ -24,8 +24,8 @@ Create table owner(
         address varchar(255)
 );
 Create table animal(
-        owner_tc_no int,
-        vet_tc_no int,
+        owner_tc_no int REFERENCES owner(tc_no),
+        vet_tc_no int REFERENCES vet(tc_no),
         animal_type varchar(255),
         id varchar(255),
         age int,
@@ -37,17 +37,23 @@ Create table appointment(
         appointment_id varchar(255),
         appointment_date varchar(255),
         appointment_hour varchar(255),
-        vet_tc_no int,
-        owner_tc_no int,
-        animal_id varchar(255)
+        vet_tc_no int REFERENCES vet(tc_no),
+        owner_tc_no int REFERENCES owner(tc_no),
+        animal_id varchar(255) REFERENCES animal(id)
 );
 Create table examination(
-        appointment_id varchar(255)
+        appointment_id varchar(255) REFERENCES appointment(appointment_id)
+        vet_tc_no int REFERENCES vet(tc_no),
+        owner_tc_no int REFERENCES owner(tc_no),
+        animal_id varchar(255) REFERENCES animal(id)
 );
 Create table boarding(
-        appointment_id varchar(255),
+        appointment_id varchar(255) REFERENCES appointment(appointment_id),
         bed_id varchar(255),
         bed_type varchar(255),
         when_to_be_available varchar(255),
-        is_available number(1,0)
+        is_available number(1,0),
+        vet_tc_no int REFERENCES vet(tc_no),
+        owner_tc_no int REFERENCES owner(tc_no),
+        animal_id varchar(255) REFERENCES animal(id)
 );
