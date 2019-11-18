@@ -11,7 +11,6 @@ public class BoardingController {
 	@RequestMapping("/list")
 	public String listAnimals() {
 
-		System.out.println("I m here");
 		return "list-boarding";
 	}
 }
