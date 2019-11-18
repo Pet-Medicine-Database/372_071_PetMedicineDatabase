@@ -6,19 +6,13 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="boarding")
 public class Boarding {
-	
-	
-	//link with appointment-id
-	//one-to-one
-	@OneToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="appointment_id")
-	private Appointment appointment;
 	
 	@Column(name="bed_id")
 	private int bedId;
@@ -31,6 +25,30 @@ public class Boarding {
 	
 	@Column(name="is_available")
 	private boolean availability;
+	
+	//many-to-one 
+	//link with vet-id
+	@ManyToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+	@JoinColumn(name="tc_no")
+	private Vet vet;
+		
+	//many-to-one 
+	//link with animal-id
+	@ManyToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+	@JoinColumn(name="id")
+	private Animal animal;
+		
+	//many-to-one
+	//link with owner-id
+	@ManyToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+	@JoinColumn(name="tc_no")
+	private Owner owner;
+	
+	//link with appointment-id
+	//one-to-one
+	@OneToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="appointment_id")
+	private Appointment appointment;
 	
 	public Boarding() {
 		
@@ -76,6 +94,30 @@ public class Boarding {
 
 	public void setAvailability(boolean availability) {
 		this.availability = availability;
+	}
+
+	public Vet getVet() {
+		return vet;
+	}
+
+	public void setVet(Vet vet) {
+		this.vet = vet;
+	}
+
+	public Animal getAnimal() {
+		return animal;
+	}
+
+	public void setAnimal(Animal animal) {
+		this.animal = animal;
+	}
+
+	public Owner getOwner() {
+		return owner;
+	}
+
+	public void setOwner(Owner owner) {
+		this.owner = owner;
 	}
 	
 	

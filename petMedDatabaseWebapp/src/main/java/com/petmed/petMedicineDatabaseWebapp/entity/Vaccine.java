@@ -1,12 +1,18 @@
 package com.petmed.petMedicineDatabaseWebapp.entity;
 
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -26,6 +32,17 @@ public class Vaccine {
 	
 	@Column(name="stock")
 	private int stock;
+	
+	@ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.DETACH
+			,CascadeType.MERGE
+			,CascadeType.PERSIST
+			,CascadeType.REFRESH})
+	@JoinTable(
+			name = "animal",
+			joinColumns = @JoinColumn(name="serial_number"),			
+			inverseJoinColumns = @JoinColumn(name="id")		
+			)
+	private List<Vaccine> vaccines;
 	
 	public Vaccine () {
 		
@@ -61,6 +78,14 @@ public class Vaccine {
 
 	public void setStock(int stock) {
 		this.stock = stock;
+	}
+
+	public List<Vaccine> getVaccines() {
+		return vaccines;
+	}
+
+	public void setVaccines(List<Vaccine> vaccines) {
+		this.vaccines = vaccines;
 	}
 	
 	

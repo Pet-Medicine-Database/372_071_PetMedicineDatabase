@@ -1,12 +1,15 @@
 package com.petmed.petMedicineDatabaseWebapp.entity;
 
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -29,6 +32,22 @@ public class Vet {
 	
 	@Column(name="name")
 	private String name;
+	
+	//one-to-many
+	@OneToMany(mappedBy="vet" ,cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+	private List<Animal> ownedAnimals;	
+
+	//one-to-many
+	@OneToMany(mappedBy="vet" ,cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+	private List<Appointment> appointmentList;	
+
+	//one-to-many
+	@OneToMany(mappedBy="vet" ,cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+	private List<Examination> examinationList;
+			
+	//one-to-many
+	@OneToMany(mappedBy="vet" ,cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+	private List<Boarding> boardingList;
 	
 	public Vet() {
 		

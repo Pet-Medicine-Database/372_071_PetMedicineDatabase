@@ -5,11 +5,15 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.Query;
@@ -51,20 +55,41 @@ public class Animal {
 	@JoinColumn(name="tc_no")
 	private Owner owner;
 	
-	//hayvancagizin girdigi butun appointmentlari burda tutmali.
-	private List<Appointment> apppointmentList;
-
-	//We won't be using this but to show the options while selecting a vet for animal, we need all vetList.
-	private List<String> vetList;
-	
-	
+	@ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+	@JoinTable(
+			name = "vaccine",
+			joinColumns = @JoinColumn(name="id"),			
+			inverseJoinColumns = @JoinColumn(name="serial_number")		
+			)
+	private List<Vaccine> vaccines;
+		
+		
+	@OneToMany(mappedBy="animal" ,cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+	private List<Appointment> apppointmentList;	
+		
 
 	public Animal() {	
 		
 	}
-
+	
 	public String getName() {
 		return name;
+	}
+
+	public List<Vaccine> getVaccines() {
+		return vaccines;
+	}
+
+	public void setVaccines(List<Vaccine> vaccines) {
+		this.vaccines = vaccines;
+	}
+
+	public List<Appointment> getApppointmentList() {
+		return apppointmentList;
+	}
+
+	public void setApppointmentList(List<Appointment> apppointmentList) {
+		this.apppointmentList = apppointmentList;
 	}
 
 	public void setName(String name) {

@@ -50,6 +50,14 @@ public class Appointment {
 	@JoinColumn(name="tc_no")
 	private Owner owner;
 	
+	@OneToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="examination_id")		//referenced at SQL
+	private Examination examination;
+	
+	@OneToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="bed_id")		//referenced at SQL
+	private Boarding boarding;
+	
 	public Appointment() {
 		
 		
@@ -110,6 +118,23 @@ public class Appointment {
 	public void setOwner(Owner owner) {
 		this.owner = owner;
 	}
+	
+	public Examination getExamination() {
+		return examination;
+	}
+
+	public void setExamination(Examination examination) {
+		this.examination = examination;
+	}
+
+	public Boarding getBoarding() {
+		return boarding;
+	}
+
+	public void setBoarding(Boarding boarding) {
+		this.boarding = boarding;
+	}
+
 	
 	@Override
 	public String toString() {

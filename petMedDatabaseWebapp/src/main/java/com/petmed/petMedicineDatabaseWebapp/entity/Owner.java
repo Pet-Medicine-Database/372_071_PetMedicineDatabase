@@ -36,10 +36,22 @@ public class Owner {
 	@Column(name="name")
 	private String name;
 	
-	//link with animal-id
+
 	//one-to-many
 	@OneToMany(mappedBy="owner" ,cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
-	private List<Animal> ownedAnimals;
+	private List<Animal> ownedAnimals;	
+
+	//one-to-many
+	@OneToMany(mappedBy="owner" ,cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+	private List<Appointment> appointmentList;	
+
+	//one-to-many
+	@OneToMany(mappedBy="owner" ,cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+	private List<Examination> examinationList;
+		
+	//one-to-many
+	@OneToMany(mappedBy="owner" ,cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+	private List<Boarding> boardingList;
 	
 	public Owner() {
 		
@@ -106,6 +118,36 @@ public class Owner {
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	public List<Appointment> getAppointmentList() {
+		return appointmentList;
+	}
+
+
+	public void setAppointmentList(List<Appointment> appointmentList) {
+		this.appointmentList = appointmentList;
+	}
+
+
+	public List<Examination> getExaminationList() {
+		return examinationList;
+	}
+
+
+	public void setExaminationList(List<Examination> examinationList) {
+		this.examinationList = examinationList;
+	}
+
+
+	public List<Boarding> getBoardingList() {
+		return boardingList;
+	}
+
+
+	public void setBoardingList(List<Boarding> boardingList) {
+		this.boardingList = boardingList;
+	}
+
 
 	@Override
 	public String toString() {

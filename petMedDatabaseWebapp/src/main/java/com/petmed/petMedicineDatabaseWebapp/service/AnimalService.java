@@ -15,6 +15,7 @@ import com.petmed.petMedicineDatabaseWebapp.entity.Owner;
 @Service
 public class AnimalService {
 	
+	@Autowired
 	AnimalDao animalDao;
 	
 	public List<Animal> getAnimals(){
@@ -31,7 +32,7 @@ public class AnimalService {
 
 	public LinkedHashMap<Owner, String> getOwnersAsKeyValuePair() {
 		List<Owner> ownerList=animalDao.getOwnerList();
-		LinkedHashMap<Owner, String> mappedList = null;
+		LinkedHashMap<Owner, String> mappedList = new LinkedHashMap<Owner, String>();
 		Iterator<Owner> i=ownerList.iterator();
 		while(i.hasNext()) {
 			Owner owner=(Owner) i.next();
@@ -42,7 +43,7 @@ public class AnimalService {
 
 	public LinkedHashMap <Vet, String> getVetsAsKeyValuePair() {
 		List<Vet> vetList=animalDao.getVetList();
-		LinkedHashMap<Vet,String> mappedList = null;
+		LinkedHashMap<Vet,String> mappedList = new LinkedHashMap<Vet, String>();
 		Iterator<Vet> i=vetList.iterator();
 		while(i.hasNext()) {
 			Vet vet=(Vet) i.next();
