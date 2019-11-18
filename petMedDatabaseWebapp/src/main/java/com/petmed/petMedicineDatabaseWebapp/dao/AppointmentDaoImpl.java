@@ -1,5 +1,7 @@
 package com.petmed.petMedicineDatabaseWebapp.dao;
 
-public class AppointmentDaoImpl implements AppointmentDao {
+import com.petmed.petMedicineDatabaseWebapp.entity.Appointment;
+
+public class AppointmentDaoImpl extends AbstractDao<Integer, Appointment> implements AppointmentDao {
 
 }
