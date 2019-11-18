@@ -1,5 +1,7 @@
 package com.petmed.petMedicineDatabaseWebapp.dao;
 
-public class BoardingDaoImpl implements BoardingDao {
+import com.petmed.petMedicineDatabaseWebapp.entity.Boarding;
+
+public class BoardingDaoImpl extends AbstractDao<Integer, Boarding> implements BoardingDao {
 
 }

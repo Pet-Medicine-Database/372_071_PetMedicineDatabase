@@ -1,5 +1,7 @@
 package com.petmed.petMedicineDatabaseWebapp.dao;
 
-public class VaccineDaoImpl implements VaccineDao{
+import com.petmed.petMedicineDatabaseWebapp.entity.Vaccine;
+
+public class VaccineDaoImpl extends AbstractDao<Integer, Vaccine> implements VaccineDao{
 
 }
