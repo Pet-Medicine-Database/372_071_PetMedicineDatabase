@@ -59,11 +59,11 @@ This page is under construction.
 						
 				<td>
 					 display the update link 
-					<a href="${updateLink}">Update</a>
+					<a href="${updateLink}">img_src</a>
 							|
 					<a href="${deleteLink}"
 					   onclick="if (!(confirm('Are you sure you want to delete this animal?'))) return false">Delete</a>
-					   
+					   	|
 					<a href = "${showLink}"
 						onclick = "(!(confirm('Are you sure you want to delete this animal?'))) return false">Show</a>   
 				</td>	
