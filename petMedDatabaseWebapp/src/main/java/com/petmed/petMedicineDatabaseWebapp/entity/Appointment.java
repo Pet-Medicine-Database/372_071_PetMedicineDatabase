@@ -59,8 +59,7 @@ public class Appointment {
 	private Boarding boarding;
 	
 	public Appointment() {
-		
-		
+			
 	}
 
 	public int getAppointmentId() {
@@ -135,7 +134,6 @@ public class Appointment {
 		this.boarding = boarding;
 	}
 
-	
 	@Override
 	public String toString() {
 		return "Appointment[ AppointmentID:" + appointmentId + ", Price:" + price + ", Appointment_date:" + appointmentDate + ", Appoinment_hour" + appointmentHour +

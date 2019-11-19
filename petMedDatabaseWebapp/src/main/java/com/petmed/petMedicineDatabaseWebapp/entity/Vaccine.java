@@ -42,7 +42,7 @@ public class Vaccine {
 			joinColumns = @JoinColumn(name="serial_number"),			
 			inverseJoinColumns = @JoinColumn(name="id")		
 			)
-	private List<Vaccine> vaccines;
+	private List<Animal> animalList;
 	
 	public Vaccine () {
 		
@@ -80,14 +80,13 @@ public class Vaccine {
 		this.stock = stock;
 	}
 
-	public List<Vaccine> getVaccines() {
-		return vaccines;
+	public List<Animal> getAnimalList() {
+		return this.animalList;
 	}
 
-	public void setVaccines(List<Vaccine> vaccines) {
-		this.vaccines = vaccines;
+	public void setAnimalList(List<Animal> animalList) {
+		this.animalList = animalList;
 	}
 	
 	
-
 }

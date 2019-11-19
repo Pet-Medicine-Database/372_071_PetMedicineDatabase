@@ -39,7 +39,7 @@ public class Owner {
 
 	//one-to-many
 	@OneToMany(mappedBy="owner" ,cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
-	private List<Animal> ownedAnimals;	
+	private List<Animal> animalList;	
 
 	//one-to-many
 	@OneToMany(mappedBy="owner" ,cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
@@ -57,17 +57,14 @@ public class Owner {
 		
 		
 	}
-	
 
-	public List<Animal> getOwnedAnimals() {
-		return ownedAnimals;
+	public List<Animal> getAnimalList() {
+		return animalList;
 	}
 
-
-	public void setOwnedAnimals(List<Animal> ownedAnimals) {
-		this.ownedAnimals = ownedAnimals;
+	public void setAnimalList(List<Animal> animalList) {
+		this.animalList = animalList;
 	}
-
 
 	public String getEmail() {
 		return email;

@@ -59,7 +59,7 @@ public class ExaminationController {
 		  LinkedHashMap<Vet, String> vetList = examinationService.getVetsAsKeyValuePair();
 		  
 	 	  //string hold the value of corresponding animal
-		  LinkedHashMap<animal, String> animalList = examinationService.getAnimalsAsKeyValuePair();
+		  LinkedHashMap<Animal, String> animalList = examinationService.getAnimalsAsKeyValuePair();
 		  	  
 		  theModel.addAttribute("examination",theExamination);
 		  theModel.addAttribute("animals",animalList);

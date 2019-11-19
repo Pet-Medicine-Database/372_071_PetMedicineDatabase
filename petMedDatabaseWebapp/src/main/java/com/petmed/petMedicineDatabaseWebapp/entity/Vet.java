@@ -35,7 +35,7 @@ public class Vet {
 	
 	//one-to-many
 	@OneToMany(mappedBy="vet" ,cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
-	private List<Animal> ownedAnimals;	
+	private List<Animal> animalList;	
 
 	//one-to-many
 	@OneToMany(mappedBy="vet" ,cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
