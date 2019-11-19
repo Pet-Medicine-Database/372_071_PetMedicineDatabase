@@ -38,7 +38,7 @@
 
 			<!-- construct an "delete" link with customer id -->.
 			<c:url var="deleteLink" value="/animal/delete">
-				<c:param name="animalId" value="${tempBoarding.id}" />
+				<c:param name="boardingId" value="${tempBoarding.id}" />
 			</c:url>					
 					
 			<tr>
