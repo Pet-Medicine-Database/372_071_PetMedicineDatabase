@@ -14,10 +14,6 @@ import com.petmed.petMedicineDatabaseWebapp.entity.Examination;
 @Service
 public class ExaminationService {
 	
-	public List<Examination> getExaminatios(){
-		return null;
-	}
-	
 	public Examination getExamination(int appointmentId) {
 		return null;
 	}
@@ -49,6 +45,12 @@ public class ExaminationService {
 		LinkedHashMap<Vet,String> vetList = new LinkedHashMap<Vet, String>();
 		return vetList;
 	}
+
+	public List<Examination> getExaminations() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	 
 
 	

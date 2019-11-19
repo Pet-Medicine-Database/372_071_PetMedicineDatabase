@@ -48,7 +48,7 @@ public class OwnerController {
 		
 	}
 	
-	@GetMapping("showOwnerFormForUpdate")
+	@GetMapping("/showOwnerFormForUpdate")
 	public String showOwnerFormForUpdate(@RequestParam("ownerId") int theId, Model theModel)
 	{
 		Owner theOwner = ownerService.getOwner(theId);
