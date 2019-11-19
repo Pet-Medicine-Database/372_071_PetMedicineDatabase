@@ -4,11 +4,13 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.query.Query;
+import org.springframework.stereotype.Repository;
 
 import com.petmed.petMedicineDatabaseWebapp.entity.Animal;
 import com.petmed.petMedicineDatabaseWebapp.entity.Owner;
 import com.petmed.petMedicineDatabaseWebapp.entity.Vet;
 
+@Repository
 public class AnimalDaoImpl extends AbstractDao<Integer, Animal> implements AnimalDao {
 	
 	@Override
@@ -38,25 +40,17 @@ public class AnimalDaoImpl extends AbstractDao<Integer, Animal> implements Anima
 		return (List<Animal>) criteria.list();
 	}
 
+	//TODO OwnerDao ve VetDaodan metod cagrilacak
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Owner> getOwnerList() {
-		String hql="select o from Owner as o,Animal as a where a.owner_tc_no=o.tc_no";
-		@SuppressWarnings("rawtypes")
-		Query query = getSession().createSQLQuery(hql);
-		List<Owner> ownerList= query.list();
-		
+		List<Owner> ownerList = null;
 		return ownerList;
 	}
-	
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Vet> getVetList() {
-		String hql="select v from Vet as v,Animal as a where a.vet_tc_no=v.tc_no";
-		@SuppressWarnings("rawtypes")
-		Query query = getSession().createSQLQuery(hql);
-		List<Vet> vetList= query.list();
-		
+		List<Vet> vetList= null;
 		return vetList;
 	}
 	

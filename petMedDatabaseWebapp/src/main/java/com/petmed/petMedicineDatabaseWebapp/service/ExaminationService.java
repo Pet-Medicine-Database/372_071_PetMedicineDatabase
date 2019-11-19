@@ -1,5 +1,6 @@
 package com.petmed.petMedicineDatabaseWebapp.service;
 
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.petmed.petMedicineDatabaseWebapp.entity.Vet;
+import com.petmed.petMedicineDatabaseWebapp.dao.ExaminationDao;
 import com.petmed.petMedicineDatabaseWebapp.entity.Animal;
 import com.petmed.petMedicineDatabaseWebapp.entity.Owner;
 import com.petmed.petMedicineDatabaseWebapp.entity.Examination;
@@ -14,41 +16,42 @@ import com.petmed.petMedicineDatabaseWebapp.entity.Examination;
 @Service
 public class ExaminationService {
 	
+	@Autowired
+	ExaminationDao examinationDao;
+	
 	public Examination getExamination(int appointmentId) {
-		return null;
+		return examinationDao.getExamination(appointmentId);
 	}
 
 	public void saveExamination(Examination newExamination) {
-		// TODO Auto-generated method stub
+		examinationDao.saveExamination(newExamination);
 		
 	}
 	
-	public LinkedHashMap<String, Animal> getAnimals() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public Vet getVets() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 	public LinkedHashMap<Animal, String> getAnimalsAsKeyValuePair() {
-		//icini doldur bana gonder abi
-		LinkedHashMap<Animal,String> animalList = new LinkedHashMap<Animal, String>();
-		return animalList;
+		List<Animal> animalList=examinationDao.getAnimalList();
+		LinkedHashMap<Animal,String> mappedList = new LinkedHashMap<Animal, String>();
+		Iterator<Animal> i=animalList.iterator();
+		while(i.hasNext()) {
+			Animal animal=(Animal) i.next();
+			mappedList.put(animal, animal.getName());	
+		}
+		return mappedList;
 	}
 
 	public LinkedHashMap<Vet, String> getVetsAsKeyValuePair() {
-		// TODO Auto-generated method stub
-		//icini doldur bana gonder abi
-		LinkedHashMap<Vet,String> vetList = new LinkedHashMap<Vet, String>();
-		return vetList;
+		List<Vet> vetList=examinationDao.getVetList();
+		LinkedHashMap<Vet,String> mappedList = new LinkedHashMap<Vet, String>();
+		Iterator<Vet> i=vetList.iterator();
+		while(i.hasNext()) {
+			Vet vet=(Vet) i.next();
+			mappedList.put(vet, vet.getName());	
+		}
+		return mappedList;
 	}
 
 	public List<Examination> getExaminations() {
-		// TODO Auto-generated method stub
-		return null;
+		return examinationDao.getExaminations();
 	}
 
 	 
