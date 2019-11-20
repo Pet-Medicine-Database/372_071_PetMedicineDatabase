@@ -1,5 +1,8 @@
 package com.petmed.petMedicineDatabaseWebapp.entity;
 
+import java.util.Calendar;
+import java.util.Date;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -45,6 +48,14 @@ public class Examination {
 	@JoinColumn(name="tc_no")
 	private Owner owner;
 	
+	@Column(name="price")
+	private double price;
+	
+	@Column(name="appointment_date")
+	private Date appointmentDate;
+	
+	@Column(name="appointment_hour")
+	private Calendar appointmentHour;
 	
 	public Examination() {
 		
@@ -88,6 +99,30 @@ public class Examination {
 
 	public void setOwner(Owner owner) {
 		this.owner = owner;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public Date getAppointmentDate() {
+		return appointmentDate;
+	}
+
+	public void setAppointmentDate(Date appointmentDate) {
+		this.appointmentDate = appointmentDate;
+	}
+
+	public Calendar getAppointmentHour() {
+		return appointmentHour;
+	}
+
+	public void setAppointmentHour(Calendar appointmentHour) {
+		this.appointmentHour = appointmentHour;
 	}
 
 }

@@ -1,5 +1,6 @@
 package com.petmed.petMedicineDatabaseWebapp.entity;
 
+import java.util.Calendar;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
@@ -30,6 +31,15 @@ public class Boarding {
 	
 	@Column(name="is_available")
 	private boolean availability;
+	
+	@Column(name="price")
+	private double price;
+	
+	@Column(name="appointment_date")
+	private Date appointmentDate;
+	
+	@Column(name="appointment_hour")
+	private Calendar appointmentHour;
 	
 	//many-to-one 
 	//link with vet-id
@@ -123,6 +133,30 @@ public class Boarding {
 
 	public void setOwner(Owner owner) {
 		this.owner = owner;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public Date getAppointmentDate() {
+		return appointmentDate;
+	}
+
+	public void setAppointmentDate(Date appointmentDate) {
+		this.appointmentDate = appointmentDate;
+	}
+
+	public Calendar getAppointmentHour() {
+		return appointmentHour;
+	}
+
+	public void setAppointmentHour(Calendar appointmentHour) {
+		this.appointmentHour = appointmentHour;
 	}
 	
 	

@@ -40,18 +40,23 @@ public class AnimalDaoImpl extends AbstractDao<Integer, Animal> implements Anima
 		return (List<Animal>) criteria.list();
 	}
 
-	//TODO OwnerDao ve VetDaodan metod cagrilacak
-	@SuppressWarnings("unchecked")
 	@Override
 	public List<Owner> getOwnerList() {
-		List<Owner> ownerList = null;
-		return ownerList;
+		String hql = "from Owner";
+		@SuppressWarnings("rawtypes")
+		Query query = getSession().createQuery(hql);
+		@SuppressWarnings("unchecked")
+		List<Owner> result = query.list();
+		return result;
 	}
-	@SuppressWarnings("unchecked")
 	@Override
 	public List<Vet> getVetList() {
-		List<Vet> vetList= null;
-		return vetList;
+		String hql = "from Vet";
+		@SuppressWarnings("rawtypes")
+		Query query = getSession().createQuery(hql);
+		@SuppressWarnings("unchecked")
+		List<Vet> result = query.list();
+		return result;
 	}
 	
 }
