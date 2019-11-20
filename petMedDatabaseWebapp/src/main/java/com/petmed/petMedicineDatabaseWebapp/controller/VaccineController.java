@@ -22,7 +22,7 @@ public class VaccineController {
 	private VaccineService vaccineService; 
 	
 	@RequestMapping("/list")
-	public String listAnimals(Model theModel) {
+	public String listVaccines(Model theModel) {
 		List<Vaccine> vaccineList = vaccineService.getVaccines();
 		
 		theModel.addAttribute(vaccineList);
@@ -44,7 +44,7 @@ public class VaccineController {
 	public String saveVaccine(@ModelAttribute("vaccine") Vaccine newVaccine) {
 		vaccineService.saveVaccine(newVaccine);
 		
-		return "redireck:/vaccine/list";
+		return "redirect:/vaccine/list";
 	}
 	
 	@GetMapping("/showVaccineFormForUpdate")
