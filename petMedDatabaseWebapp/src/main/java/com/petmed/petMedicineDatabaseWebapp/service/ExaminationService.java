@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.petmed.petMedicineDatabaseWebapp.entity.Vet;
 import com.petmed.petMedicineDatabaseWebapp.dao.ExaminationDao;
@@ -19,15 +20,18 @@ public class ExaminationService {
 	@Autowired
 	ExaminationDao examinationDao;
 	
+	@Transactional
 	public Examination getExamination(int appointmentId) {
 		return examinationDao.getExamination(appointmentId);
 	}
 
+	@Transactional
 	public void saveExamination(Examination newExamination) {
 		examinationDao.saveExamination(newExamination);
 		
 	}
 	
+	@Transactional
 	public LinkedHashMap<Animal, String> getAnimalsAsKeyValuePair() {
 		List<Animal> animalList=examinationDao.getAnimalList();
 		LinkedHashMap<Animal,String> mappedList = new LinkedHashMap<Animal, String>();
@@ -39,6 +43,7 @@ public class ExaminationService {
 		return mappedList;
 	}
 
+	@Transactional
 	public LinkedHashMap<Vet, String> getVetsAsKeyValuePair() {
 		List<Vet> vetList=examinationDao.getVetList();
 		LinkedHashMap<Vet,String> mappedList = new LinkedHashMap<Vet, String>();
@@ -50,6 +55,7 @@ public class ExaminationService {
 		return mappedList;
 	}
 
+	@Transactional
 	public List<Examination> getExaminations() {
 		return examinationDao.getExaminations();
 	}
