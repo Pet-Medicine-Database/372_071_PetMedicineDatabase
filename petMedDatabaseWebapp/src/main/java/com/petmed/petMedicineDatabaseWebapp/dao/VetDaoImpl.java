@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.petmed.petMedicineDatabaseWebapp.entity.Vet;
 
 @Repository
-public class VetDaoImpl extends AbstractDao<Integer, Vet> implements VetDao {
+public class VetDaoImpl extends AbstractDao<Long, Vet> implements VetDao {
 
 	@Override
 	public void saveVet(Vet newVet) {
@@ -16,7 +16,7 @@ public class VetDaoImpl extends AbstractDao<Integer, Vet> implements VetDao {
 	}
 
 	@Override
-	public Vet getVet(int id) {
+	public Vet getVet(long id) {
 		return getByKey(id);
 	}
 

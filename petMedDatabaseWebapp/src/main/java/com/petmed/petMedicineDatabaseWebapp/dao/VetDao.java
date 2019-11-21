@@ -8,7 +8,7 @@ public interface VetDao {
 
 	void saveVet(Vet newVet);
 
-	Vet getVet(int id);
+	Vet getVet(long id);
 
 	List<Vet> getVets();
 

@@ -10,6 +10,6 @@ public interface OwnerDao {
 
 	void saveOwner(Owner newOwner);
 
-	Owner getOwner(int theId);
+	Owner getOwner(long theId);
 	
 }

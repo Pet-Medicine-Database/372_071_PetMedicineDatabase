@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.petmed.petMedicineDatabaseWebapp.entity.Owner;
 
 @Repository
-public class OwnerDaoImpl extends AbstractDao<Integer, Owner>implements OwnerDao {
+public class OwnerDaoImpl extends AbstractDao<Long, Owner>implements OwnerDao {
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -23,7 +23,7 @@ public class OwnerDaoImpl extends AbstractDao<Integer, Owner>implements OwnerDao
 	}
 
 	@Override
-	public Owner getOwner(int theId) {
+	public Owner getOwner(long theId) {
 		return getByKey(theId);
 	}
 
