@@ -40,19 +40,19 @@ public class Animal {
 	//many-to-one 
 	//link with vet-id
 	@ManyToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
-	@JoinColumn(name="tc_no")
+	@JoinColumn(name="vet_tc_no")
 	private Vet vet;
 	
 	//many-to-one 
 	//link with owner-id
 	@ManyToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
-	@JoinColumn(name="tc_no")
+	@JoinColumn(name="owner_tc_no")
 	private Owner owner;
 	
 	@ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
 	@JoinTable(
-			name = "vaccine",
-			joinColumns = @JoinColumn(name="id"),			
+			name = "apply",
+			joinColumns = @JoinColumn(name="animal_id"),			
 			inverseJoinColumns = @JoinColumn(name="serial_number")		
 			)
 	private List<Vaccine> vaccines;

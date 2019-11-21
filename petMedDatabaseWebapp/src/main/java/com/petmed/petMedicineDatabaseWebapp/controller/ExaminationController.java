@@ -32,7 +32,7 @@ public class ExaminationController {
 		List<Examination> theExaminations = examinationService.getExaminations();
 		theModel.addAttribute("examinations",theExaminations);
 		
-		return "list-examinations";
+		return "list-examination";
 	}
 	
 	@RequestMapping("/showExamination")

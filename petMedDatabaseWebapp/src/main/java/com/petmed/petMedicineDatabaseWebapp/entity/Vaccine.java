@@ -38,9 +38,9 @@ public class Vaccine {
 			,CascadeType.PERSIST
 			,CascadeType.REFRESH})
 	@JoinTable(
-			name = "animal",
+			name = "apply",
 			joinColumns = @JoinColumn(name="serial_number"),			
-			inverseJoinColumns = @JoinColumn(name="id")		
+			inverseJoinColumns = @JoinColumn(name="animal_id")		
 			)
 	private List<Animal> animalList;
 	

@@ -36,8 +36,11 @@ public class AnimalDaoImpl extends AbstractDao<Integer, Animal> implements Anima
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Animal> getAnimalList() {
-		Criteria criteria = createEntityCriteria();
-		return (List<Animal>) criteria.list();
+		String hql = "from Animal";
+		System.out.println("HELLO WORLD!");
+		Query<Animal> query = getSession().createQuery(hql,Animal.class);
+		System.out.println(query.getResultList());
+		return query.getResultList();
 	}
 
 	@Override
