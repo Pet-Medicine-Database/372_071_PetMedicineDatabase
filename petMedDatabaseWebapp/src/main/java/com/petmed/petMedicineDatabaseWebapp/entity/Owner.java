@@ -27,7 +27,7 @@ public class Owner {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="tc_no")
-	private int ownerTCNo;
+	private long ownerTCNo;
 	
 	@Column(name="phone_number")
 	private long phoneNumber;
@@ -90,7 +90,7 @@ public class Owner {
 		this.address = address;
 	}
 
-	public int getOwnerTCNo() {
+	public long getOwnerTCNo() {
 		return ownerTCNo;
 	}
 

@@ -35,19 +35,19 @@ public class Appointment {
 	//many-to-one 
 	//link with vet-id
 	@ManyToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
-	@JoinColumn(name="tc_no")
+	@JoinColumn(name="vet_tc_no")
 	private Vet vet;
 	
 	//many-to-one 
 	//link with animal-id
 	@ManyToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
-	@JoinColumn(name="id")
+	@JoinColumn(name="animal_id")
 	private Animal animal;
 	
 	//many-to-one
 	//link with owner-id
 	@ManyToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
-	@JoinColumn(name="tc_no")
+	@JoinColumn(name="owner_tc_no")
 	private Owner owner;
 	
 	@OneToOne(cascade=CascadeType.ALL)
