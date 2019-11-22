@@ -4,27 +4,58 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Animal list</title>
+<style>
+
+table {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+table tr:nth-child(even){background-color: #f2f2f2;}
+
+table tr:hover {background-color: #ddd;}
+
+table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: lightblue;
+    color: black;
+}
+.button {
+    background-color: lightblue;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+h2{
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+
+</style>
 </head>
+
 <body>
-<h1> Animal list</h1>
-This page is under construction.
-
-<br><br>
-
 	<div id="wrapper">
 		<div id="header">
 			<h2>Animal List Page</h2>
 		</div>
 	</div>
-	
 
-	<input type="button" value="Add Animal"
-					   onclick="window.location.href='showAnimalFormForAdd'; return false;"
-					   class="add-button"/>
-					   
-	<table>
+<table>
 		<tr>
 			<th>Ismi</th>
 			<th>Cinsi</th>
@@ -42,7 +73,7 @@ This page is under construction.
 				<c:param name="animalId" value="${tempAnimal.id}" />
 			</c:url>					
 
-			 construct an "delete" link with customer id 
+			construct an "delete" link with customer id 
 			<c:url var="deleteLink" value="/animal/delete">
 				<c:param name="animalId" value="${tempAnimal.id}" />
 			</c:url>
@@ -55,6 +86,8 @@ This page is under construction.
 				<td> ${tempAnimal.name} </td>
 				<td> ${tempAnimal.age} </td>
 				<td> ${tempAnimal.genus} </td>
+                <td>  ${tempAnimal.owner.email}</td>
+                <td> ${tempAnimal.owner.name} </td>
 				<td> ${tempAnimal.vet.name}</td>
 						
 				<td>
@@ -73,8 +106,11 @@ This page is under construction.
 		</c:forEach>
 						
 	</table>
-					  
-					  
-
+    	<input type="button" value="Add Animal"
+					   onclick="window.location.href='showAnimalFormForAdd'; return false;"
+					   class="button"/>
+			
+    
+				    
 </body>
 </html>

@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+    <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,52 +37,40 @@ div {
 table{
 	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
 }
-
 </style>
 </head>
 
 <body>
 <div id = "wrapper">
 	<div id = "header">
-		<h2>Evcil Hayvan Ekleme Sayfasi</h2>
+		<h2>Make an Examination Appointment</h2>
 	</div>
 </div>
 
+
 <div id ="container">
 	
-	<form:form action = "saveAnimal" modelAttribute="animal" method = "POST">
-	<form:hidden path="animalId"/> 
+	<form:form action = "saveExamination" modelAttribute="examination" method = "POST">
+	<form:hidden path="examinationId"/> 
 	
 	<table>
 		<tbody>
+		
+		<form>
+ 	 	Appointment Date: <input type="date" path="appointmentDate">
+		</form>
+		
 			<tr>
-				<td><label>Name:</label> </td>
-				<td><form:input type = "text" path="name" /></td>
-			</tr>
-			<tr>
-				<td><label>Type:</label> </td>
-				<td><form:input path="type"/></td>
-			</tr>
-			<tr>
-				<td><label>Genus:</label> </td>
-				<td><form:input path="genus"/></td>
-			</tr>
-			<tr>
-				<td><label>Age:</label> </td>
-				<td><form:input path="age"/></td>
-			</tr>
-			
-			<tr>
-				<td><label>Hayvanin Sahibi:</label> </td>
+				<td><label>Evcil Hayvaniniz:</label> </td>
 				<td>
-					<form:select path="owner">
-						<form:options items="${owners}"/>
+					<form:select path="animal">
+						<form:options items="${animals}"/>
 					</form:select>
 				</td>
 			</tr>
 
 			<tr>
-				<td><label>Hayvanin Veterineri:</label> </td>
+				<td><label>Hayvanin veterineri:</label> </td>
 				<td>
 					<form:select path="vet">
 						<form:options items="${vets}"/>
@@ -96,9 +83,15 @@ table{
 			</tr>
 		</tbody> 
 	
-	</table>	
+	</table>
+	
+	
+	
+	
 	</form:form>
 	
 </div>
+
+
 </body>
 </html>

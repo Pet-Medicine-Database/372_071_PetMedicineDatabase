@@ -38,61 +38,41 @@ div {
 table{
 	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
 }
-
 </style>
 </head>
-
 <body>
-<div id = "wrapper">
-	<div id = "header">
-		<h2>Evcil Hayvan Ekleme Sayfasi</h2>
-	</div>
-</div>
+
 
 <div id ="container">
-	
-	<form:form action = "saveAnimal" modelAttribute="animal" method = "POST">
-	<form:hidden path="animalId"/> 
+	<h2>Yatili Kayit Sayfasi</h2>
+	<form:form action = "saveBoarding" modelAttribute="boarding" method = "POST">
+	<form:hidden path="boardingId"/> 
 	
 	<table>
 		<tbody>
 			<tr>
-				<td><label>Name:</label> </td>
-				<td><form:input type = "text" path="name" /></td>
+				<td><label>Yatak No:</label> </td>
+				<td><form:input type = "text" path="bedId"/></td>
 			</tr>
 			<tr>
-				<td><label>Type:</label> </td>
-				<td><form:input path="type"/></td>
+				<td><label>Bosalma Tarihi:</label> </td>
+				<td><form:input type = "date" path="whenToBeAvailable"/></td>
 			</tr>
 			<tr>
-				<td><label>Genus:</label> </td>
-				<td><form:input path="genus"/></td>
+				<td><label>Yatak Tipi:</label> </td>
+				<td><form:input path="bedType"/></td>
 			</tr>
-			<tr>
-				<td><label>Age:</label> </td>
-				<td><form:input path="age"/></td>
-			</tr>
-			
-			<tr>
-				<td><label>Hayvanin Sahibi:</label> </td>
+				<tr>
+				<td><label>Kullanacak Evcil Hayvanin Adi:</label> </td>
 				<td>
-					<form:select path="owner">
-						<form:options items="${owners}"/>
-					</form:select>
-				</td>
-			</tr>
-
-			<tr>
-				<td><label>Hayvanin Veterineri:</label> </td>
-				<td>
-					<form:select path="vet">
-						<form:options items="${vets}"/>
+					<form:select path="animal">
+						<form:options items="${animals}"/>
 					</form:select>
 				</td>
 			</tr>
 			<tr>
 				<td><label></label></td>
-				<td><input type="submit" value="Save" class="save" /></td>
+				<td><input type="submit" value="Kaydet" class="save" /></td>
 			</tr>
 		</tbody> 
 	

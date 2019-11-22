@@ -6,18 +6,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<style>
+h2{
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: lightblue;
+  color: black;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+table{
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+</style>
 </head>
 <body>
-<div id = "wrapper">
-	<div id = "header">
-		<h2>HELLO WORLD!</h2>
-	</div>
-</div>
+
 
 <div id ="container">
-	<h3>Save Animal</h3>
+	<h2>Save Vaccine</h2>
 	<form:form action = "saveVaccine" modelAttribute="vaccine" method = "POST">
 	<form:hidden path="serialNumber"/> 
 	
@@ -36,7 +63,7 @@
 				<td><form:input path="stock"/></td>
 			</tr>
 			<tr>
-				<td><label>Age:</label> </td>
+				<td><label>Serial Number:</label> </td>
 				<td><form:input path="serialNumber"/></td>
 			</tr>
 			
